@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rock Paper Scissors</title>
+    </head>
+    <script>
+        let handSigns = Array('rock', 'paper', 'scissors');
+        function computerPlay() {
+            let compChoice = Math.floor(Math.random() * handSigns.length);
+            console.log(compChoice, handSigns[compChoice]);
+            return(handSigns[compChoice]);
+        }
+       function playGame() {
+        let playerSelection = prompt('Rock, Paper or Scissors?').toLowerCase();
+
+            if (handSigns.indexOf(playerSelection) >= 0) {
+                let compSelection = computerPlay();
+                if (playerSelection == compSelection) {
+                    alert("It's a draw! You both choose " + compSelection + "!")
+                }
+                else if (playerSelection == 'rock') {
+                    if (compSelection == 'paper') {
+                        alert('Computer choose paper! You Loose...');
+                    }
+                    else {
+                        alert('Computer choose scissors! You Win!');
+                    }
+                }
+                else if (playerSelection == 'paper') {
+                    if (compSelection == 'rock') {
+                        alert('The computer choose rock! You Win!');
+                    }
+                    else {
+                        alert('The computer choose scissors! You Loose...');
+                    }
+                }
+                else {
+                    if (compSelection == 'rock') {
+                        alert('The Computer choose rock! You Loose...');
+                    }
+                    else {
+                        alert('The computer choose paper! You Win!');
+                    }
+                }
+            }
+            else {
+                alert('Thats not a valid play!');
+            }
+
+            
+
+       }
+        playGame();
+
+    </script>
+</html>

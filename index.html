@@ -8,7 +8,6 @@
         let handSigns = Array('rock', 'paper', 'scissors');
         function computerPlay() {
             let compChoice = Math.floor(Math.random() * handSigns.length);
-            console.log(compChoice, handSigns[compChoice]);
             return(handSigns[compChoice]);
         }
        function playGame() {
@@ -17,41 +16,54 @@
             if (handSigns.indexOf(playerSelection) >= 0) {
                 let compSelection = computerPlay();
                 if (playerSelection == compSelection) {
-                    alert("It's a draw! You both choose " + compSelection + "!")
+                    alert("It's a draw! You both choose " + compSelection + "!");
+                    return('Draw');
                 }
                 else if (playerSelection == 'rock') {
                     if (compSelection == 'paper') {
                         alert('Computer choose paper! You Loose...');
+                        return('Lost');
                     }
                     else {
                         alert('Computer choose scissors! You Win!');
+                        return('Won');
                     }
                 }
                 else if (playerSelection == 'paper') {
                     if (compSelection == 'rock') {
                         alert('The computer choose rock! You Win!');
+                        return('Won');
                     }
                     else {
                         alert('The computer choose scissors! You Loose...');
+                        return('Lost');
                     }
                 }
                 else {
                     if (compSelection == 'rock') {
                         alert('The Computer choose rock! You Loose...');
+                        return('Lost');
                     }
                     else {
                         alert('The computer choose paper! You Win!');
+                        return('Won');
                     }
                 }
             }
             else {
                 alert('Thats not a valid play!');
+                return('error');
             }
 
             
 
        }
-        playGame();
+       function game() {
+        for (let i = 0; i < 5; i++){
+            console.log(i, playGame())
+        }
+       }
+       game();
 
     </script>
 </html>
